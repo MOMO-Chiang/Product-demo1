@@ -1,0 +1,304 @@
+$sidebar-width: 230px;
+$sidebar-collapsed-width: 80px;
+$header-height: 3.5rem;
+$header-wrapper-padding-top: 1rem;
+$header-wrapper-height: $header-height + $header-wrapper-padding-top;
+$layout-content-padding-top: 2rem;
+$layout-content-padding-left: 1rem;
+$layout-content-padding-right: 1rem;
+$layout-content-padding-bottom: 1rem;
+$layout-transition-delay-and-func: 0.24s ease-in-out;
+
+// Mixin for desktop layout breakpoint
+@mixin media-admin-desktop-min-width {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+// ========= AdminLayout =========
+.esapp-admin-layout {
+}
+
+.esapp-admin-layout-header-wrapper {
+  position: fixed;
+  padding-top: 20px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  transition: left $layout-transition-delay-and-func;
+
+  @include media-admin-desktop-min-width {
+    left: $sidebar-width;
+  }
+}
+
+.esapp-admin-layout-header {
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14), 0 0 transparent, 0 0 transparent;
+  padding: 0;
+  background-color: var(--app-header-bg);
+  color: var(--app-header-color);
+
+  // nav-item
+  .nav-item {
+    display: flex;
+    align-items: center;
+  }
+
+  // nav-link
+  .navbar-nav .nav-link {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+.esapp-admin-layout-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -1000px;
+  width: $sidebar-width;
+  background-color: var(--app-sidebar-bg);
+  color: var(--app-sidebar-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14), 0 0 transparent, 0 0 transparent;
+  z-index: 1040;
+  transition: left $layout-transition-delay-and-func, width $layout-transition-delay-and-func;
+
+  @include media-admin-desktop-min-width {
+    left: 0;
+  }
+
+  .sidebar-container {
+    height: 100%;
+  }
+
+  .sidebar-header {
+    display: flex;
+    // height: $header-height;
+    padding: 1rem 0.813rem;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .sidebar-content {
+    display: block;
+    height: calc(100% - $header-wrapper-height);
+    overflow-y: auto;
+  }
+
+  .sidebar-menu {
+    display: block;
+    padding: 0.8rem 0;
+    margin: 0;
+  }
+
+  .menu-item {
+    list-style: none;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .menu-link {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 4px;
+    border-radius: 8px;
+  }
+
+  .menu-icon {
+    display: block;
+    width: 22px;
+    margin-right: 8px;
+    text-align: center;
+  }
+
+  .menu-title {
+    display: block;
+    flex-grow: 1;
+    font-weight: bold;
+  }
+
+  .menu-arrow {
+    display: flex;
+    width: 24px;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.18s ease-in-out;
+  }
+
+  .submenu {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-item > .menu-link:hover {
+    // background: var(--app-sidebar-background-hover);
+    // color: var(--app-sidebar-on-background-hover);
+  }
+
+  .menu-item.expanded:not(.active) > .menu-link {
+    // background: var(--app-sidebar-background-active);
+    // color: var(--app-sidebar-on-background-active);
+  }
+
+  .menu-item.active > .menu-link {
+    color: #fff;
+    background: linear-gradient(80deg, var(--app-primary-500), var(--app-primary-300));
+  }
+
+  .menu-item.expanded > .menu-link > .menu-arrow {
+    transform: rotate(90deg);
+    // margin-top: -3px;
+  }
+
+  .menu-item.expanded > .submenu {
+    display: block;
+  }
+}
+
+.esapp-admin-layout-sidebar-overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.24);
+  z-index: 1039;
+
+  @include media-admin-desktop-min-width {
+    display: none;
+  }
+}
+
+.esapp-admin-layout-content {
+  padding-top: calc($header-wrapper-height + $layout-content-padding-top);
+  padding-right: $layout-content-padding-right;
+  padding-left: $layout-content-padding-left;
+  transition: padding-left $layout-transition-delay-and-func;
+
+  @include media-admin-desktop-min-width {
+    padding-left: calc($sidebar-width + $layout-content-padding-left);
+  }
+}
+
+// ========= AdminLayout Status =========
+.esapp-admin-layout.mobile-sidebar-open {
+  .esapp-admin-layout-sidebar {
+    left: 0;
+  }
+
+  .esapp-admin-layout-sidebar-overlay {
+    display: block;
+  }
+}
+
+.esapp-admin-layout.desktop-sidebar-collapsed {
+  @include media-admin-desktop-min-width {
+    .esapp-admin-layout-header-wrapper {
+      left: $sidebar-collapsed-width;
+    }
+
+    .esapp-admin-layout-sidebar:not(:hover) {
+      width: $sidebar-collapsed-width;
+
+      .sidebar-menu > .menu-item > .menu-link {
+        justify-content: center;
+      }
+
+      .sidebar-menu > .menu-item > .menu-link > .menu-icon {
+        margin-right: 0;
+      }
+
+      .sidebar-menu > .menu-item > .menu-link > .menu-title {
+        display: none;
+      }
+
+      .sidebar-menu > .menu-item > .menu-link > .menu-arrow {
+        display: none;
+      }
+
+      .menu-item.expanded > .submenu {
+        display: none;
+      }
+    }
+
+    .esapp-admin-layout-content {
+      padding-left: calc($sidebar-collapsed-width + $layout-content-padding-left);
+    }
+  }
+}
+
+// ========= Components =========
+.esapp-admin-layout {
+  .app-brand {
+    font-size: 1.375rem;
+    font-weight: 700;
+
+    > a {
+      text-decoration: none;
+    }
+  }
+
+  // SidebarToggler
+  .sidebar-toggler {
+    background: transparent;
+    border: 0;
+
+    &.mobile-sidebar-toggler {
+      display: block;
+
+      @include media-admin-desktop-min-width {
+        display: none;
+      }
+    }
+
+    &.desktop-sidebar-toggler {
+      display: none;
+
+      @include media-admin-desktop-min-width {
+        display: block;
+      }
+    }
+  }
+
+  // UserDropdown
+  .user-dropdown {
+    .user-dropdown-toggle {
+      display: flex;
+      align-items: center;
+
+      &::after {
+        display: none;
+      }
+    }
+    .user-dropdown-greeting {
+      display: block;
+      font-weight: 600;
+      font-size: 17px;
+      margin-top: 4px;
+    }
+
+    .user-dropdown-avatar {
+      display: block;
+      margin-left: 8px;
+      color:#7367F0;
+      > img {
+        border-radius: 50%;
+        display: block;
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+}

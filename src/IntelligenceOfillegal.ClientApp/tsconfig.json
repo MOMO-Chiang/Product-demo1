@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node",
+    "isolatedModules": false,
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "baseUrl": ".",
+    // paths 必須同步設定於 webpack.config.js -> resolve.alias
+    "paths": {
+      "@src/*": ["src/*"]
+    }
+  },
+  "include": ["./src"],
+  "exclude": ["node_modules"]
+}

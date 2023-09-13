@@ -1,0 +1,46 @@
+@import '../../styles/variables';
+
+$card-border-radius: 6px;
+
+.esapp-card {
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 18px rgba(47, 43, 61, 0.1), 0 0 transparent, 0 0 transparent;
+  border: none;
+  border-radius: $card-border-radius;
+}
+
+.esapp-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: none;
+  padding: 1.313em 1.313em 0.438em 1.313em;
+  background-color: var(--app-surface-bg);
+
+  &:first-child {
+    border-radius: $card-border-radius $card-border-radius 0 0;
+  }
+
+  + .esapp-card-body {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+.esapp-card-body {
+  background-color: var(--app-surface-bg);
+  border-radius: $card-border-radius;
+
+  + .esapp-card-footer {
+    padding-top: 0;
+  }
+}
+
+.esapp-card-footer {
+  border: none;
+  background-color: var(--app-surface-bg);
+
+  &:last-child {
+    border-radius: 0 0 $card-border-radius $card-border-radius;
+  }
+}

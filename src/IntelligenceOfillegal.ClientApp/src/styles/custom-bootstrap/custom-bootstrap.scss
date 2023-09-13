@@ -1,0 +1,15 @@
+// Override bootstrap variables
+@import '../variables';
+@import '../variables-dark';
+
+// import bootstrap
+@import '~bootstrap/scss/bootstrap.scss';
+
+// import override bootstrap components
+// ...
+@import './buttons';
+
+.dropdown-menu {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+  border: 0;
+}

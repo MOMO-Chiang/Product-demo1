@@ -1,0 +1,8 @@
+@import '../variables';
+
+.btn-primary {
+  --#{$prefix}btn-color: #fff;
+  --#{$prefix}btn-hover-color: #fff;
+  --#{$prefix}btn-active-color: #fff;
+  --#{$prefix}btn-disabled-color: #fff;
+}

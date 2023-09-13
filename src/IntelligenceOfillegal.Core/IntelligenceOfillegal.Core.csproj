@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5448D3F-43E6-40CD-A833-EF9CFB11D5DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IntelligenceOfillegal.Core</RootNamespace>
+    <AssemblyName>IntelligenceOfillegal.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Contrib.2.0.78\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.SqlBuilder, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.SqlBuilder.2.0.78\lib\net461\Dapper.SqlBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\WhereColumnNameAttribute.cs" />
+    <Compile Include="Attributes\WhereOperatorAttribute.cs" />
+    <Compile Include="DbConnections\DbConnectionFactory.cs" />
+    <Compile Include="DbConnections\IDbConnectionFactory.cs" />
+    <Compile Include="Entities\CaseManagement.cs" />
+    <Compile Include="Entities\CaseManagementTransferHistory.cs" />
+    <Compile Include="Entities\Enumeration.cs" />
+    <Compile Include="Entities\EnumerationValue.cs" />
+    <Compile Include="Entities\IntelligenceFilelist.cs" />
+    <Compile Include="Entities\MainLog.cs" />
+    <Compile Include="Entities\MjibUnitCode.cs" />
+    <Compile Include="Entities\ObjPerson.cs" />
+    <Compile Include="Entities\SystemExceptionLog.cs" />
+    <Compile Include="Entities\SystemUnitRespPerson.cs" />
+    <Compile Include="Entities\SysUserList.cs" />
+    <Compile Include="Entities\FileList.cs" />
+    <Compile Include="Entities\FileObjPerson.cs" />
+    <Compile Include="Entities\ExternalIntelligence.cs" />
+    <Compile Include="Factories\DepartmentFactory.cs" />
+    <Compile Include="Models\CaseDistributeModels.cs" />
+    <Compile Include="Models\PaginationQueryModel.cs" />
+    <Compile Include="Models\ExternalIntelligenceModels.cs" />
+    <Compile Include="Models\BasicCodeModel.cs" />
+    <Compile Include="Models\RptIntelligenceSourceModel.cs" />
+    <Compile Include="Models\RptUnitsProcStatusModels.cs" />
+    <Compile Include="Models\SelectOptions.cs" />
+    <Compile Include="Models\SystemUsersModels.cs" />
+    <Compile Include="Models\RptLaundryItlgModels.cs" />
+    <Compile Include="Models\PaginationQueryModel.cs" />
+    <Compile Include="Models\RptIncorruptionItlgModels.cs" />
+    <Compile Include="Models\RptEconomyItlgModels.cs" />
+    <Compile Include="Models\SystemUnitRespPersonModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CaseManagementTransferHistoryRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICaseManagementTransferHistoryRepository.cs" />
+    <Compile Include="Repositories\FileListRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IFileListRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IFileObjPersonRepository.cs" />
+    <Compile Include="Repositories\FileObjPersonRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRptIntelligenceSourceRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRptUnitsProcStatusRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRptLaundryItlgRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRptIncorruptionItlgRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRptEconomyItlgRepository.cs" />
+    <Compile Include="Repositories\RptIntelligenceSourceRepository.cs" />
+    <Compile Include="Repositories\RptUnitsProcStatusRepository.cs" />
+    <Compile Include="Repositories\RptLaundryItlgRepository.cs" />
+    <Compile Include="Repositories\RptIncorruptionItlgRepository.cs" />
+    <Compile Include="Repositories\RptEconomyItlgRepository.cs" />
+    <Compile Include="Repositories\CaseManagementRepository.cs" />
+    <Compile Include="Repositories\ExternalIntelligenceManagementRepository.cs" />
+    <Compile Include="Repositories\EnumerationRepository.cs" />
+    <Compile Include="Repositories\EnumerationValueRepository.cs" />
+    <Compile Include="Repositories\IntelligenceFilelistRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICaseManagementRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IExternalIntelligenceRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEnumerationRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEnumerationValueRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IIntelligenceFilelistRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMainLogRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMjibUnitCodeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IObjPersonRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRepositoryBase.cs" />
+    <Compile Include="Repositories\Interfaces\ISystemExceptionLogRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISystemUnitRespPersonRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISysUserListRepository.cs" />
+    <Compile Include="Repositories\MainLogRepository.cs" />
+    <Compile Include="Repositories\MjibUnitCodeRepository.cs" />
+    <Compile Include="Repositories\ObjPersonRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\SystemExceptionLogRepository.cs" />
+    <Compile Include="Repositories\SystemUnitRespPersonRepository.cs" />
+    <Compile Include="Repositories\SysUserListRepository.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWorkBase.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IntelligenceOfillegal.Common\IntelligenceOfillegal.Common.csproj">
+      <Project>{5e2e9ae6-6932-4b06-bc4c-c8e6cab0059f}</Project>
+      <Name>IntelligenceOfillegal.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

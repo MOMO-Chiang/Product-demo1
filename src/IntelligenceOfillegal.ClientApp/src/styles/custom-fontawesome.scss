@@ -1,0 +1,8 @@
+/* Import `Font Awesome` */
+// 需把 `/node_modules/@fortawesome/webfonts` 所有檔案複製到 `/public/assets/webfonts/fontawesome-free`
+// 並設定 $fa-font-path 變數
+$fa-font-path: '/assets/webfonts/fontawesome-free';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';

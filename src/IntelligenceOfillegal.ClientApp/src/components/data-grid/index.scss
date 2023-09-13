@@ -1,0 +1,80 @@
+.esapp-data-grid-th,
+.esapp-data-grid-td {
+  white-space: nowrap;
+}
+
+.esapp-data-grid-table-th-content {
+  display: flex;
+  flex-grow: 1;
+  white-space: nowrap;
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
+
+.esapp-data-grid-table-th-arrows {
+  display: block;
+  width: 28px;
+  text-align: center;
+  color: var(--app-gray-400);
+
+  > .fas:first-child {
+    vertical-align: middle;
+  }
+
+  > .fas.active {
+    color: var(--app-gray-900);
+  }
+}
+
+.esapp-data-grid-page-size-select {
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__select {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  &__text {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+.esapp-pagination {
+  display: flex;
+  justify-content: space-between;
+
+  &__pagination {
+    .page-link {
+      cursor: pointer;
+    }
+  }
+
+  .page-link {
+    user-select: none;
+  }
+}
+
+.esapp-data-table-loading-wrapper {
+  display: flex;
+  justify-content: center;
+  min-height: 480px;
+  align-items: center;
+}
+
+.esapp-data-table-loading {
+  width: 80px;
+}
+
+.esapp-data-table-empty-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // color: #636363;
+  padding: 1rem 1rem 2rem 1rem;
+}
